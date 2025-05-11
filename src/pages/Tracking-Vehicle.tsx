@@ -12,12 +12,14 @@ import VehicleList from "@/components/vehicle-list";
 import { formatPlaca } from "@/lib/utils";
 import useVehicle from "@/services/hooks/useVehicle";
 import { AlertTriangle, CircleDot, Loader, Loader2 } from "lucide-react";
+import { VehicleForm } from "@/components/vehicle-form";
 
 const TrackingPage = () => {
   const scrollRef = useRef<HTMLElement | null>(null);
 
   const [filter, setFilter] = useState<string>("tracked");
   const [searchValue, setSearchValue] = useState<string>("");
+  const [openForm, setOpenForm] = useState<boolean>(false);
 
   const queryClient = useQueryClient();
   const {
@@ -121,6 +123,7 @@ const TrackingPage = () => {
               setFilterValue={setFilter}
               searchValue={searchValue}
               setSearchValue={setSearchValue}
+              onNewClick={() => setOpenForm(true)}
             />
 
             <Separator className="bg-[#012d45]" />
@@ -170,6 +173,7 @@ const TrackingPage = () => {
           </div>
         )}
       </main>
+      <VehicleForm open={openForm} setOpen={setOpenForm} />
     </div>
   );
 };

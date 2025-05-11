@@ -14,7 +14,6 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["@testing-library/jest-dom"],
 
     /* Linting */
     "strict": true,
@@ -29,5 +28,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "test/jest.setup.ts"]
+  "include": ["src"]
 }

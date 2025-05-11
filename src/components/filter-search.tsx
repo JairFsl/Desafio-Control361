@@ -8,6 +8,7 @@ interface FilterSearchProps {
   setFilterValue: React.Dispatch<React.SetStateAction<string>>;
   searchValue: string;
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  onNewClick: VoidFunction;
 }
 
 const FilterSearch = ({
@@ -15,6 +16,7 @@ const FilterSearch = ({
   setFilterValue,
   searchValue,
   setSearchValue,
+  onNewClick,
 }: FilterSearchProps) => {
   return (
     <div className="flex flex-col gap-3 md:flex-row">
@@ -95,7 +97,10 @@ const FilterSearch = ({
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <Button className="bg-[#0796e3] hover:bg-[#0796e3b8] h-auto w-[100px]">
+        <Button
+          className="bg-[#0796e3] hover:bg-[#0796e3b8] h-auto w-[100px]"
+          onClick={onNewClick}
+        >
           Novo
         </Button>
       </div>
