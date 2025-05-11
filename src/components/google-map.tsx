@@ -9,7 +9,7 @@ import { CircleDot } from "lucide-react";
 import markerIcon from "@/assets/truck-marker.svg";
 
 interface MapComponentProps {
-  vehicles: (VehicleLocation | undefined)[];
+  vehicles: (VehicleLocation | undefined)[] | undefined;
 }
 
 const initialCenter = { lat: -15.7921, lng: -47.8825 };
@@ -70,7 +70,7 @@ const MapComponent = ({ vehicles }: MapComponentProps) => {
           minZoom: 4,
         }}
       >
-        {vehicles.map(
+        {vehicles?.map(
           (vehicle, index) =>
             vehicle && (
               <Marker

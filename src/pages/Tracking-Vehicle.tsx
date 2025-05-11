@@ -58,8 +58,24 @@ const TrackingPage = () => {
       (page) => page.content.locationVehicles
     );
 
+    if (searchValue && searchValue !== "") {
+      return locations?.filter((location) => {
+        const searchUpper = searchValue.toUpperCase();
+        const plateFormated = formatPlaca(location?.plate).toUpperCase();
+        const fleetStr =
+          location?.fleet?.toString().toUpperCase() ?? "SEM FROTA";
+
+        if (
+          plateFormated.includes(searchUpper) ||
+          fleetStr.includes(searchUpper)
+        ) {
+          return location;
+        }
+      });
+    }
+
     return locations ?? [];
-  }, [data]);
+  }, [data, searchValue]);
 
   return (
     <div className="w-full h-full bg-[#001e2e]">
