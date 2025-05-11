@@ -10,7 +10,7 @@ interface FetchVechileDataProps {
 export async function FetchVechileData({
   type,
   pageParam,
-  perPage = 20, // Padrão de 20 páginas de acordo com o FIGMA do desafio
+  perPage = 20, // Padrão de 20 páginas de acordo com as informações do desafio
 }: FetchVechileDataProps): Promise<FetchVechileDataResponse> {
   try {
     const res = await fetch(
@@ -18,7 +18,7 @@ export async function FetchVechileData({
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`, // process.env.API_AUTH_TOKEN
+          Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`,
         },
       }
     );
